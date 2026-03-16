@@ -5,11 +5,16 @@ import requests
 
 app = FastAPI(
     title="Middleware TJDFT Jurisprudência",
-    version="1.0.0",
-    description="Middleware para traduzir consultas simples em chamadas compatíveis com a API pública de jurisprudência do TJDFT."
+    version="1.0.1",
+    description="Middleware para traduzir consultas simples em chamadas compatíveis com a API pública de jurisprudência do TJDFT.",
+    servers=[
+        {
+            "url": "https://middleware-tjdft-gpt.onrender.com",
+            "description": "Produção"
+        }
+    ]
 )
 
-# CORS liberado para facilitar testes e futuras integrações
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
